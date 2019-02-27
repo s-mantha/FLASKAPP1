@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title> App</title>
+    <body>
+      <div class="container">
+        <h1>pub med disease reference visualisation app </h1>
+        <h3>Please fill the entires to generate a bargraph</h3>
+         <form action="chartgeneration" method="POST">
+          <input title="input please" placeholder="Enter an year " type="number" min="1900", max="2019" name="startyear" required> <br>
+          <input title="input please" placeholder="Enter an year " type="number" min="1900", max="2019" name="endyear" required> <br>
+          <input title="input please" placeholder="term for search" type="text" name="disease" required> <br>
+         
+       
+          <button name="chtbtn" type="submit" onclick="generate_chart("startyear","endyear","disease")">chart</button>
+    </form>
+      </div>
+    </body>
+</html>

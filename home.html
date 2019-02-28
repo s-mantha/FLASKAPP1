@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="home">
+<h1>pub med disease reference visualisation app </h1>
+<h3>Please fill the entires to generate a bargraph</h3>
+<form action="chartgeneration" method="POST">
+          <label for="startyear">Please enter the start year:</label> <input title="input please" placeholder="Enter an year " type="number" min="1900", max="2019" name="startyear" required> <br>
+          <label for="startyear">Please enter the end year:</label> <input title="input please" placeholder="Enter an year " type="number" min="1900", max="2019" name="endyear" required> <br>
+          <label for="startyear">Please enter the disease/disease prone area:</label> <input title="input please" placeholder="term for search" type="text" name="disease" required> <br>
+         
+       
+          <button name="chtbtn" type="submit" onclick="generate_chart("startyear","endyear","disease")">enter</button>
+    </form>
+</div>
+{% endblock %}

@@ -50,6 +50,7 @@ def generate_chart(): #function to generate a bar plot
     p.vbar(x=x, top=y,width=0.5)
     p.xgrid.grid_line_color = None
     p.y_range.start = 0
+    show(p)
     return render_template("Line.html")
 if __name__ == '__main__':
     app.debug = True

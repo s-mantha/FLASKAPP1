@@ -1,11 +1,11 @@
 # import the necessary packages
 from flask import Flask, render_template, request
-from generate_chart import generate_chart
 from bokeh.embed import components
 from bokeh.resources import CDN 
 from Bio import Entrez
 from bokeh.plotting import figure
 from bokeh.io import output_file, show
+from bokeh.embed import file_html
 # mapping URLs to code
 app=Flask(__name__)
 
@@ -25,7 +25,7 @@ def generate_chart(): #function to generate a bar plot
     startyear = int(request.form["startyear"])
     endyear = int(request.form["endyear"])   
     disease = request.form["disease"]
-    if startyear == endyear :
+    if startyear >= endyear :
       return render_template("error.html") 
     else:
         mydict ={}
@@ -50,8 +50,9 @@ def generate_chart(): #function to generate a bar plot
     p.vbar(x=x, top=y,width=0.5)
     p.xgrid.grid_line_color = None
     p.y_range.start = 0
-    show(p)
-    return render_template("Line.html")
+    #show(p)
+    html = file_html(p, CDN, "my plot")
+    return html
 if __name__ == '__main__':
     app.debug = True
     app.run()
